@@ -1,0 +1,21 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 185, in script
+    player "Yup."
+Exception: Sayer 'wright' is not defined.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 185, in script
+    player "Yup."
+  File "/Applications/Renpy/renpy/ast.py", line 593, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "/Applications/Renpy/renpy/ast.py", line 509, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
+Exception: Sayer 'wright' is not defined.
+
+Darwin-17.3.0-x86_64-i386-64bit
+Ren'Py 6.99.12.4.2187
+a-shared-cup-demo 1.0
