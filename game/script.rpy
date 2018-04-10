@@ -1,4 +1,4 @@
-define player_name = ""
+pdefine player_name = ""
 
 #Protagonist
 define player = DynamicCharacter("player_name", color=(192,64,64,255))
@@ -10,7 +10,7 @@ define camila = Character("Camila", who_color="#00007f") #Camila
 define ivy = Character("Ivy", who_color="#2DC8FD") #Ivy
 define cancino = Character("Cancion", who_color="#CC3333") #Cancino
 define hagane = Character("Hagane", who_color="#4AC7D8") #Hagane
-define derecho = Character("Derecho", who_color="#C2D84A") #Derecho
+define pablo = Character("Pablo", who_color="#C2D84A") #Pablo
 
 define sex = True
 define choose_tea = False
@@ -18,7 +18,9 @@ define choose_tea = False
 define etsuko_choices = 0
 define hagane_choices = 0
 define camila_choices = 0
-define derecho_choices = 0
+define pablo_choices = 0
+
+define told_etsuko = False
 
 label start:
 
@@ -63,7 +65,7 @@ label start:
         hagane "And then she sent an audio begging for help!"
         "hahahahaha!"
         $ renpy.pause(1.0)
-        derecho "So, we all agree he's a furry, right?"
+        pablo "So, we all agree he's a furry, right?"
         etsuko "Noooooo!"
         $ renpy.pause(1.0)
         ivy "Wait, is %(player_name)s asleep?"
@@ -130,7 +132,7 @@ label start:
         etsuko "That's honestly freaking adorable, I'm actually jealous."
         "Etsuko said as he hid rapidly behind me, knowing Hagane would probably stand and follow him."
 
-        "It was a nice moment, Derecho was there laughing, Camila was shatting with Ivy, Cancino was trying to tease Hagane..."
+        "It was a nice moment, Pablo was there laughing, Camila was shatting with Ivy, Cancino was trying to tease Hagane..."
         "Isn't someone missing?"
 
         tavo "ETSUKOOOO"
@@ -153,7 +155,7 @@ label start:
                 $ camila_choices = camila_choices + 1
                 $ choose_tea = True
             "Coffee":
-                $ derecho_choices = derecho_choices + 1
+                $ pablo_choices = pablo_choices + 1
                 $ hagane_choices = hagane_choices + 1
 
         etsuko "Kay', wait right here, I'll bring you your drink in a bit"
@@ -181,7 +183,7 @@ label start:
         "Etsuko yelled out from the kitchen"
         camila "Have your classes been {i}that rough{/i}?"
         player "I only remember doing the projects my teacher asks for and falling asleep while doing them."
-        derecho "On... your work table...?"
+        pablo "On... your work table...?"
         "Worry appeared slightly on everyone's faces."
         player "Yup."
         camila "That's not good, you need to take better care of yourself!"
@@ -198,7 +200,7 @@ label start:
             jump coffee_drinker
 
     label tea_drinker:
-        derecho "Mateo, Cancino, Hagane and me, I think."
+        pablo "Mateo, Cancino, Hagane and me, I think."
         "Tavo skillfully left the cups in front of each person as the names where mentioned."
         etsuko "So there's tea for Camila, Tavo, %(player_name)s and me."
         camila "What leaves did you use, Etsu?"
@@ -236,19 +238,19 @@ label start:
         jump after_drink
 
     label coffee_drinker:
-        derecho "Mateo, Cancino, %(player_name)s, Hagane and me."
+        pablo "Mateo, Cancino, %(player_name)s, Hagane and me."
         "Tavo skillfully left the cups in front of each person as the names where mentioned."
         etsuko "So there's tea for Camila, Tavo and me."
         "Etsuko left the cups in front of the tea drinkers of the group and sat down."
-        "Derecho inhaled strongly the scent that was coming up from his cup."
-        derecho "Ahh~ Is this your Golden Willow Etsuko?"
+        "Pablo inhaled strongly the scent that was coming up from his cup."
+        pablo "Ahh~ Is this your Golden Willow Etsuko?"
         etsuko "As perceptive as always, huh? \n But actually, this time it is Tavo's take on my recipe."
-        "Derecho took a big sip and slowly swallowed it."
-        derecho "I'm impressed, is Tavo gaining interest in preparing coffee?"
+        "Pablo took a big sip and slowly swallowed it."
+        pablo "I'm impressed, is Tavo gaining interest in preparing coffee?"
         tavo "Maybe, and thanks, after seeing Etsuko preparing tea and coffee so many times I kinda grabbed interest in it."
         etsuko "I'd like to think that between seeing me prepare that coffee so many times and tasting what my hands made captured his heart."
         "Etsuko said that while doing really expressive hand gestures."
-        derecho "I think he just likes coffee."
+        pablo "I think he just likes coffee."
         "Hagane laughed out of his life, and Etsuko pretended that she was deeply wounded."
         hagane "So, how's the coffee %(player_name)s, haven't seen you have a sip yet."
         "I breathed slowly and took a big sip."
@@ -258,17 +260,17 @@ label start:
         jump after_drink
 
     label after_drink:
-        derecho "At least Etsuko's got good taste for something, right?"
+        pablo "At least Etsuko's got good taste for something, right?"
         "Everybody laughed but Etsuko showed himself annoyed."
         etsuko "Hey!"
-        derecho "You've gotta admit he's got no taste for videogames."
+        pablo "You've gotta admit he's got no taste for videogames."
         menu:
             "I'm sorry, but he's right.":
-                $ derecho_choices = derecho_choices + 1
-                derecho "See? I'm telling you!"
+                $ pablo_choices = pablo_choices + 1
+                pablo "See? I'm telling you!"
             "That's not right!":
                 $ etsuko_choices = etsuko_choices + 1
-                etsuko "See? Don't tease me like that, Derecho."
+                etsuko "See? Don't tease me like that, Pablo."
         "I slowly left that side of the conversation and joined Hagane, Camila and Cancino who were talking about collectibles."
         hagane "I tell you, these local stores only try to over-charge you for stuff!"
         "Hagane, as always, was in the verge of yelling."
@@ -281,7 +283,7 @@ label start:
         menu:
             "Not wait, but pay more!":
                 $ camila_choices = camila_choices + 1
-                derecho "So you're the impatient kind of type, huh..."
+                pablo "So you're the impatient kind of type, huh..."
                 player "I cannot really stand the wait for shippings, I start checking the status of the package every 20 minutes."
                 hagane "Well, If you get anxious about shipments, maybe you're not going through the wront route paying more, I guess..."
                 "Hagane incredibly said that with a much calmer voice."
@@ -299,7 +301,7 @@ label start:
         "I think everybody can tell Tavo wants to go to an arcade."
         hagane "We always go to arcades, I say we do something different for once!"
         etsuko "I... I don't do well on amusement parks, but it's true we always go to arcades."
-        derecho "I wanna go to the amusement park too, sounds fun, and really out of place for what's common in our gatherings."
+        pablo "I wanna go to the amusement park too, sounds fun, and really out of place for what's common in our gatherings."
         cancino "I don't care either way, both sound fun."
         "He said that while he had his mouth full of cookies."
         etsuko "It sounds like a plan then! Is everybody sure?"
@@ -333,8 +335,8 @@ label start:
         "We took an elevator and got outside Etsuko's apartment."
         player "Which way do we need to go?"
         hagane "Oh right, you don't know how we got here."
-        derecho "We go straight from here and we'll find a subway station, then it's just following the map."
-        "As Derecho explained we started walking on the direction he pointed."
+        pablo "We go straight from here and we'll find a subway station, then it's just following the map."
+        "As Pablo explained we started walking on the direction he pointed."
 
         "The group walked into the subway and took a train, they got lucky and got an almost empty wagon."
         "Who should I sit next to...?"
@@ -373,6 +375,7 @@ label start:
                         "Etsuko looked at the rest of the group blissfully as she saw the rest of the group deciding what ride to get on first."
                     "Not really, but going as a group sounds fun!":
                         $ etsuko_choices = etsuko_choices + 1
+                        $ told_etsuko = True
                         etsuko "Really? It's the same for me! I have a pretty bad time with amusement parks actually."
                         player "Why is that?"
                         etsuko "I have motion sickness, even cards are a little too much for me, unless I'm the one driving."
@@ -414,18 +417,139 @@ label start:
                         player "I wouldn't worry about that, if we have gotten through that stuff, it means we can still hold up."
                         camila "I hope so..."
                         "Camila looked up to their friends, who were discussing which ride they would get up first."
-            "Derecho":
-                pass
+            "Pablo":
+                $ pablo_choices = pablo_choices + 1
+                pablo "So, what do you plan on riding?"
+                player "I still don't know, I don't know the place yet anyway."
+                pablo "You can always ride this one."
+                "I tried to not notice the awful tone that the joke gave."
+                pablo "But, seriously, how has the city been treating you?"
+                menu:
+                    "It's nice, I feel like I'm slowly blending in.":
+                        pablo "That's nice to know.\n If you do have any difficulties you know you can ask any of us, right?"
+                        player "Right."
+                        player "It's still pretty weird to wake up to a house that houses just me and Ivy though."
+                        pablo "That sounds like something hard to get accustomed to."
+                        player "I mean, 18 years living with your parents and suddenly you share a home alone with a friend."
+                        pablo "You have to admit that's pretty sweet."
+                        player "Yeah, it is actually really comfortable."
+                        "We both looked at our friends who were all talking about what rides to go on first."
+                    "Actually, It's pretty hard.":
+                        pablo "Yeah, I get that... It's hard to notice that sometimes you're alone, huh..."
+                        player "Even while having Ivy a bedroom away, it sometimes feels lonely..."
+                        pablo "Yeah, not having your family at hand... Having to watch everything for yourself..."
+                        pablo "You also need to be a role model for Ivy."
+                        player "I think he's actually being a role model for me though!"
+                        "We both laughed."
+                        pablo "Well, all said, I get you, I passed through the same, we almost all did, and if you ever need some company to crack some jokes for you, just say the word."
+                        pablo "Thanks Pablo..."
+                        "We both looked at our friends who were all talking about what rides to go on first."
+
+        "We traveled through 8 stations and finally got off."
+        "Etsuko and Hagane were chatting and laughing, Pablo cracked some jokes for Ivy, Camila was searching which exit was the one we needed with the help of Tavo."
+
+        camila "I think this is the one..."
+        "Camila pointed at a mechanical escalator while looking at her phone and we followed her instructions."
+
+        "We got outside and we saw a gigantic amusement park, with big rollercoasters, fun water themed rides and fun and spooky ones."
+        "We paid our fees and got into the park."
+
+        camila "So...\n Where are we going first?"
+        menu:
+            "A big rollecoaster!":
+                $ hagane_choices = hagane_choices + 1
+                jump demo_rollercoaster_big
+            "A small rollercoaster!":
+                $ camila_choices = camila_choices + 1
+                jump demo_rollercoaster_small
+            "A water ride!":
+                $ pablo_choices = pablo_choices + 1
+                jump demo_water_ride
+            "The Haunted House!":
+                $ etsuko_choices = etsuko_choices + 1
+                jump demo_haunted_house
+
+    label demo_rollercoaster_big:
+        camila "Okay, does that sound good to everyone?"
+        etsuko "I'm actually going to skip this one."
+        hagane "Are you sure?"
+        etsuko "Yeah, that for me sounds like a plain bad idea."
+        etsuko "I'll be sitting over here, you all just go have your fun!"
+        player "We don't really have to go to this big one first, are you..."
+        etsuko "Oh, don't worry, go and have fun, I'll have my fun later."
+        "Etsuko pulled some headphones from her pocket and went searching in the direction she said before."
+        hagane "Okay now! Let's go!"
+
+        $ renpy.pause(3.0)
+
+        hagane "I feel REALLY sick..."
+        "Behind Hagane came Pablo who was carrying Ivy's lifeless body."
+        pablo "Maybe it wasn't that good of an idea, but it sure was fun!"
+        "Camila was holding her stomach with one hand and holding her glasses in place with the other."
+        camila "No one dare puke..."
+        tavo "Don't worry, we wont."
+        "Tavo came out looking like he didn't even go on the rollercoaster."
+        "Etsuko came to get us and saw the state we were at."
+        etsuko "I think I did a good job skipping this one."
+        menu:
+            "Yeah, I feel like I'm dying...":
+                $ camila_choices = camila_choices + 1
+                $ etsuko_choices = etsuko_choices + 1
+                if dizzy:
+                    etsuko "I'm not surprised at all."
+                    "Etsuko laughed it off."
+                    player "It wasn't a good idea at all."
+                    if told_etsuko:
+                        etsuko "I know, why did you go on it knowing you would get dizzy? It's almost as if you had a death wish!"
+                        "I laughed slightly to try to get Etsuko to calm down a little, as she was slightly mad."
+                else:
+                    camila "Let's not do that ever again..."
+                    etsuko "Guess I did a good job skipping this one."
+                    "Etsuko was walking in our direction while pulling headphones out of her ears."
+                    player "Yeah, you did, it wasn't a good idea at all..."
+                    if told_etsuko:
+                        etsuko "Yeah, no joke, I don't know how I would have ended if I had rode that."
+            "I feel GREAT!":
+                $ pablo_choices = pablo_choices + 1
+                $ hagane_choices = hagane_choices + 1
+                if dizzy:
+                    hagane "You didn't even need the pills! You're amazing! Let's get onto another one!"
+                else:
+                    hagane "That's my guy!"
+                    "Hagane was cheerfully jumping."
+                    hagane "Let's go into another one!"
+                etsuko "Ey, we've got more rides to go than just rollercoasters!"
+                "Etsuko was walking in our direction while pulling headphones out of her ears."
+                pablo "Can we rest a little before that? Ivy's COMPLETELY out..."
+                "Pablo was, in fact, carrying Ivy's lifeless body on his back."
+                "Etsuko, after seeing Ivy, ran to help Pablo carry him."
 
 
-        if hagane_choices > etsuko_choices and hagane_choices > camila_choices and hagane_choices > derecho_choices:
+
+
+        pass
+
+    label demo_rollercoaster_small:
+        pass
+
+    label demo_water_ride:
+        pass
+
+    label demo_haunted_house:
+        pass
+
+
+
+
+
+        if hagane_choices > etsuko_choices and hagane_choices > camila_choices and hagane_choices > pablo_choices:
             "Scene with Hagane."
-        if etsuko_choices > hagane_choices and etsuko_choices > camila_choices and etsuko_choices > derecho_choices:
+        if etsuko_choices > hagane_choices and etsuko_choices > camila_choices and etsuko_choices > pablo_choices:
             "Scene with Etsuko."
-        if camila_choices > hagane_choices and camila_choices > etsuko_choices and camila_choices > derecho_choices:
+        if camila_choices > hagane_choices and camila_choices > etsuko_choices and camila_choices > pablo_choices:
             "Scene with Camila."
-        if derecho_choices > hagane_choices and derecho_choices > etsuko_choices and derecho_choices > camila_choices:
-            "Scene with Derecho."
+        if pablo_choices > hagane_choices and pablo_choices > etsuko_choices and pablo_choices > camila_choices:
+            "Scene with Pablo."
 
 
 
